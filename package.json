@@ -1,6 +1,6 @@
 {
     "name": "pegpy-tree-viewer",
-    "displayName": "pegpy_tree_viewer",
+    "displayName": "PEGPY Tree Viewer",
     "description": "Graphical AST Tree Viewer for PEGPY",
     "version": "0.0.1",
     "engines": {
@@ -10,14 +10,14 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.helloWorld"
+        "onCommand:extension.generateTree"
     ],
     "main": "./extension.js",
     "contributes": {
         "commands": [
             {
-                "command": "extension.helloWorld",
-                "title": "Hello World"
+                "command": "extension.generateTree",
+                "title": "PEGPY Tree Viewer"
             }
         ]
     },

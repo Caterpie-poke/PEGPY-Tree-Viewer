@@ -1,7 +1,7 @@
 const vscode = require('vscode');
 
 function activate(context) {
-    let disposable = vscode.commands.registerCommand('extension.helloWorld', async function () {
+    let disposable = vscode.commands.registerCommand('extension.generateTree', async function () {
         const inputText = await vscode.window.showInputBox({
             value: '',
             placeHolder: 'Paste AST',
@@ -16,9 +16,6 @@ function activate(context) {
                 enableScripts: true,
             }
         );
-        var treeCode = buildTree(parse(inputText), 'TOP', true);
-        panel.webview.html = getWebviewContent(treeCode);
-
 
         function buildTree(obj, node, first) {
             if (!first) {
@@ -144,6 +141,9 @@ function activate(context) {
                 throw new Error(`<PARSE ERROR> pos:${ast.pos} don't match with ${target}`);
             }
         }
+
+        var treeCode = buildTree(parse(inputText), 'TOP', true);
+        panel.webview.html = getWebviewContent(treeCode);
     });
 
     context.subscriptions.push(disposable);
